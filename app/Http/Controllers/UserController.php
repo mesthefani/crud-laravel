@@ -6,7 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Storage; 
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -90,7 +90,6 @@ class UserController extends Controller
         $datosUser= request()->except(['_token','_method']);
 
         if($request->hasFile('avatar')){
-
             $user=User::findOrFail($id);
             Storage::delete('public/'.$user->avatar);
             $datosUser['avatar']=$request->file('avatar')->store('uploads','public');
@@ -98,7 +97,7 @@ class UserController extends Controller
 
         User::where('id','=',$id)->update($datosUser);
         $user=User::findOrFail($id);
-        return view('user.edit', compact('user') );
+        return redirect('user');
     }
 
     /**

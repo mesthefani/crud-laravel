@@ -4,8 +4,113 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b48e51cf2e3a84d07f63a74dc5cb6852",
+    "content-hash": "64a46a37a182dc53e23ea5a91bedc483",
     "packages": [
+        {
+            "name": "almasaeed2010/adminlte",
+            "version": "v3.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ColorlibHQ/AdminLTE.git",
+                "reference": "bd4d9c72931f1dd28601b6bfb387554a381ad540"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ColorlibHQ/AdminLTE/zipball/bd4d9c72931f1dd28601b6bfb387554a381ad540",
+                "reference": "bd4d9c72931f1dd28601b6bfb387554a381ad540",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Colorlib"
+                }
+            ],
+            "description": "AdminLTE - admin control panel and dashboard that's based on Bootstrap 4",
+            "homepage": "https://adminlte.io/",
+            "keywords": [
+                "JS",
+                "admin",
+                "back-end",
+                "css",
+                "less",
+                "responsive",
+                "template",
+                "theme",
+                "web"
+            ],
+            "support": {
+                "issues": "https://github.com/ColorlibHQ/AdminLTE/issues",
+                "source": "https://github.com/ColorlibHQ/AdminLTE/tree/v3.2.0"
+            },
+            "time": "2022-02-07T20:33:09+00:00"
+        },
+        {
+            "name": "brian2694/laravel-toastr",
+            "version": "5.57",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/brian2694/laravel-toastr.git",
+                "reference": "1274f58564b9d845dfe82d5aca60b99b6fbb5a71"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/brian2694/laravel-toastr/zipball/1274f58564b9d845dfe82d5aca60b99b6fbb5a71",
+                "reference": "1274f58564b9d845dfe82d5aca60b99b6fbb5a71",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/session": ">=5.2.7",
+                "illuminate/support": ">=5.2.7",
+                "php": ">=5.5.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Brian2694\\Toastr\\ToastrServiceProvider"
+                    ],
+                    "aliases": {
+                        "Toastr": "Brian2694\\Toastr\\Facades\\Toastr"
+                    }
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/helper.php"
+                ],
+                "psr-4": {
+                    "Brian2694\\Toastr\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "brian2694",
+                    "email": "briansanchez2694@gmail.com"
+                }
+            ],
+            "description": "toastr.js for Laravel",
+            "homepage": "https://github.com/brian2694/laravel-toastr",
+            "keywords": [
+                "laravel",
+                "notification",
+                "php",
+                "toastr"
+            ],
+            "support": {
+                "issues": "https://github.com/brian2694/laravel-toastr/issues",
+                "source": "https://github.com/brian2694/laravel-toastr/tree/5.57"
+            },
+            "time": "2022-02-21T04:34:55+00:00"
+        },
         {
             "name": "brick/math",
             "version": "0.9.3",
@@ -892,6 +997,66 @@
                 }
             ],
             "time": "2022-03-20T21:55:58+00:00"
+        },
+        {
+            "name": "jeroennoten/laravel-adminlte",
+            "version": "v3.8.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jeroennoten/Laravel-AdminLTE.git",
+                "reference": "0043e3fc962a34f0e8debcf5806751c78e22cb60"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jeroennoten/Laravel-AdminLTE/zipball/0043e3fc962a34f0e8debcf5806751c78e22cb60",
+                "reference": "0043e3fc962a34f0e8debcf5806751c78e22cb60",
+                "shasum": ""
+            },
+            "require": {
+                "almasaeed2010/adminlte": "3.2.*",
+                "laravel/framework": ">=6.0",
+                "php": ">=7.2.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": ">=4.0",
+                "phpunit/phpunit": ">=9.1",
+                "scrutinizer/ocular": "^1.9"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "JeroenNoten\\LaravelAdminLte\\AdminLteServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "JeroenNoten\\LaravelAdminLte\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jeroen Noten",
+                    "email": "jeroennoten@me.com"
+                }
+            ],
+            "description": "Easy AdminLTE integration with Laravel",
+            "keywords": [
+                "AdminLTE",
+                "admin",
+                "administrator",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/jeroennoten/Laravel-AdminLTE/issues",
+                "source": "https://github.com/jeroennoten/Laravel-AdminLTE/tree/v3.8.2"
+            },
+            "time": "2022-05-18T14:12:47+00:00"
         },
         {
             "name": "laravel/framework",
@@ -5156,6 +5321,89 @@
                 "source": "https://github.com/webmozarts/assert/tree/1.10.0"
             },
             "time": "2021-03-09T10:59:23+00:00"
+        },
+        {
+            "name": "yoeunes/toastr",
+            "version": "v1.2.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yoeunes/toastr.git",
+                "reference": "ff1af05918e2cd9e725a0a811c9a14546c8f1219"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yoeunes/toastr/zipball/ff1af05918e2cd9e725a0a811c9a14546c8f1219",
+                "reference": "ff1af05918e2cd9e725a0a811c9a14546c8f1219",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "illuminate/session": "^5.5 || ^6.0 || ^7.0 || ^8.0 || ^9.0",
+                "illuminate/support": "^5.5 || ^6.0 || ^7.0 || ^8.0 || ^9.0",
+                "php": ">=7.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Yoeunes\\Toastr\\ToastrServiceProvider"
+                    ],
+                    "aliases": {
+                        "Toastr": "Yoeunes\\Toastr\\Facades\\Toastr"
+                    }
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "Yoeunes\\Toastr\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Younes Khoubza",
+                    "email": "younes.khoubza@gmail.com",
+                    "homepage": "https://github.com/yoeunes",
+                    "role": "Developer"
+                }
+            ],
+            "description": "toastr.js flush notifications for Laravel and Lumen",
+            "homepage": "https://github.com/yoeunes/toastr",
+            "keywords": [
+                "alerts",
+                "flush",
+                "flush messages",
+                "flush notifications",
+                "laravel",
+                "laravel 5",
+                "laravel 6",
+                "laravel 7",
+                "laravel flush notifications",
+                "laravel notification",
+                "laravel notify",
+                "laravel toastr",
+                "lumen",
+                "messages",
+                "notification",
+                "php",
+                "toastr",
+                "toastr js",
+                "yoeunes"
+            ],
+            "support": {
+                "docs": "https://github.com/yoeunes/toastr/README.md",
+                "email": "younes.khoubza@gmail.com",
+                "issues": "https://github.com/yoeunes/toastr/issues",
+                "source": "https://github.com/yoeunes/toastr"
+            },
+            "abandoned": "php-flasher/flasher-toastr-laravel",
+            "time": "2022-01-28T20:29:38+00:00"
         }
     ],
     "packages-dev": [

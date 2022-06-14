@@ -5,6 +5,7 @@ use  App\Http\Controllers\UserController;
 use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Group;
 use Illuminate\Support\Facades\Auth;
+use  App\Http\Controllers\ProductController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,13 +25,11 @@ Route::get('/', function () {
 //Route::get('/user/create',[userController::class,'create']);
 //Route::get('/user/edit',[userController::class,'edit']);
 
-Route::resource('user',UserController::class)->middleware('auth');
-
 Auth::routes();
-
-Route::get('/home', [UserController::class, 'index'])->name('home');
 
 Route::group(['middleware' => 'auth'], function() {
     Route::get('/', [UserController::class, 'index'])->name('home');
-    
+    Route::get('/home', [UserController::class, 'index'])->name('home');
+    Route::resource('user',UserController::class);
+    Route::resource('product',ProductController::class);
 });
