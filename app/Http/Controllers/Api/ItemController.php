@@ -43,17 +43,24 @@ class ItemController extends Controller
      */
     public function store(ItemRequest $request)
     {
-        $item = Item::create($request->all());
 
         if(isset($request->validator)&& $request->validator->fails()){
             return response()->json(['errors'=> $request->validator->errors()]);
         }
-
+        try{
+        $item = Item::create($request->all());
         return response()->json([
             'success' => true,
             'data' => $item,
             'msg' => 'Item Save'
-        ]);
+        ],200);
+        }catch(\Illuminate\Database\QueryException $ex){
+            return response()->json([
+                'success' => false,
+                'msg' => 'Data Bases Error',
+                'exception' => $ex->getMessage()
+            ],500);
+        }
     }
 
     /**
@@ -62,10 +69,30 @@ class ItemController extends Controller
      * @param  \App\Models\Item  $item
      * @return \Illuminate\Http\Response
      */
-    public function show(Item $item)
+    public function show($id)
     {
-        //
+        $item = Item::find($id);
+        try{
+            if(!$item){
+                return response()->json([
+                    'success' => false,
+                    'msg' => 'Item not found'
+                ]);
+            }else{
+                return response()->json([
+                    'success' => true,
+                    'data' => $item,
+                ]);
+            }
+        }catch(\Illuminate\Database\QueryException $ex){
+            return response()->json([
+                'success' => false,
+                'msg' => 'Error Validation',
+                'exception' => $ex->getMessage()
+            ]);
+        }
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -85,17 +112,35 @@ class ItemController extends Controller
      * @param  \App\Models\Item  $item
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateItemRequest $request, Item $item)
+    public function update(UpdateItemRequest $request, $id)
     {
         if(isset($request->validator)&& $request->validator->fails()){
             return response()->json(['errors'=> $request->validator->errors()]);
         }
-        $item->update($request->all());
-        return response()->json([
-            'success' => true,
-            'data' => $item,
-            'msg' => 'Uddated Item'
-        ]);
+
+        $item = Item::find($id);
+        try{
+            if(!$item){
+                return response()->json([
+                    'success' => false,
+                    'msg' => 'Item not found'
+                ]);
+            }else{
+                $item->update($request->all());
+                return response()->json([
+                    'success' => true,
+                    'data' => $item,
+                    'msg' => 'Uddated Item'
+                ]);
+            }
+        }catch(\Illuminate\Database\QueryException $ex){
+            return response()->json([
+                'success' => false,
+                'msg' => 'Error Validation',
+                'exception' => $ex->getMessage()
+            ],404);
+        }
+
     }
 
     /**
@@ -104,12 +149,29 @@ class ItemController extends Controller
      * @param  \App\Models\Item  $item
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Item $item)
+    public function destroy($id)
     {
-        $item->delete();
-        return response()->json([
-            'success' => true,
-            'msg' => 'Removed Item'
-        ]);
+       $item = Item::find($id);
+        try{
+            if(!$item){
+                return response()->json([
+                    'success' => false,
+                    'msg' => 'Item not found'
+                ]);
+            }else{
+                $item->delete();
+                return response()->json([
+                    'success' => true,
+                    'msg' => 'Removed Item'
+                ]);
+            }
+        }catch(\Illuminate\Database\QueryException $ex){
+            return response()->json([
+                'success' => false,
+                'msg' => 'Error Validation',
+                'exception' => $ex->getMessage()
+            ],404);
+
+        }
     }
 }

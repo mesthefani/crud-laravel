@@ -24,7 +24,6 @@ class ItemRequest extends FormRequest
     public function rules()
     {
         return [
-            "id" => "required|unique:items,id",
             "item_name" => "required",
             "item_price" => "required",
             "item_date" => "required",
@@ -35,8 +34,6 @@ class ItemRequest extends FormRequest
 
     public function messages(){
         return[
-            "id.unique" => "El Id ya existe",
-            "id.required" => "El Id es requerido",
             "item_name.required" => "El nombre es requerido",
             "item_price.required" => "El precio es requerido",
             "item_date.required" => "La fecha es requerida",
